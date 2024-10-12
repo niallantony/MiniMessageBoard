@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title><%= message.user %>'s Message</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <%- include('header',{}) %>
+        <div class="message">
+            <p>Opened message:</p>
+            <p>User: <%= message.user %></p>
+            <p>Text: <%= message.text %></p>
+            <p>Posted: <%= message.added.toDateString()%>, <%= message.added.toTimeString().substring(0,8)%></p>
+            <a href="./..">Back</a>
+        </div>
+    </body>
+</html>

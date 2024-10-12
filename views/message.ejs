@@ -1,0 +1,9 @@
+<div class="message">
+    <ul class="short-message">
+        <li> <%= message.user %> </li>
+        <li> <%= message.text %> </li>
+        <li> <%= message.added.toDateString() %> </li>
+        <li> <%= message.added.toTimeString().substring(0,8) %> </li>
+    </ul>
+    <a href="./message/<%=message.id%>"">Open</a>
+</div>

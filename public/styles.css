@@ -1,0 +1,103 @@
+:root {
+    font-family:'Courier New', Courier, monospace;
+    --bg-colour: rgb(213, 146, 136);
+    --alt-colour: rgb(230, 233, 236);
+}
+
+
+
+body {
+    background-color: var(--bg-colour);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    background-color: var(--alt-colour);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    width: 100dvw;
+}
+
+header a {
+    width: 12rem;
+}
+
+.message p {
+    margin: 1rem 2rem;
+    font-size: 1.5rem;
+}
+
+.message p:first-child {
+    margin: 1rem 1rem 0;
+    font-size: 1rem;
+}
+
+.message p:last-of-type {
+    margin: 1rem 2rem 3rem;
+    font-size: 1rem;
+    text-align: right;
+}
+
+
+.message, form {
+    background-color: var(--alt-colour);
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: min(520px, 90%);
+}
+
+textarea {
+    margin-bottom: 1rem;
+}
+
+a, 
+button {
+    background-color: var(--bg-colour);
+    color: var(--alt-colour);
+    padding: .5rem;
+    border-radius: 5px;
+    align-self: center;
+    text-decoration: none;
+    text-align: center;
+    width: 12rem;
+    border: 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: .8rem;
+}
+
+a {
+    display: block;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+a:hover, 
+button:hover {
+    filter: brightness(105%);
+}
+
+.short-message {
+    list-style: none;
+}
+
+.short-message li:first-child {
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.short-message li:nth-child(2) {
+    margin: 1rem 0;
+}

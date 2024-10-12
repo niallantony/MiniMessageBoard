@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>New Message</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <%- include("header",{}) %>
+        <form method="POST" action="/new">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="username">
+            <br>
+            <label for="message">Message: </label>
+            <textarea type="textarea" id="message" name="messagetext" rows="4"></textarea>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <a href="./..">Cancel</a> 
+            </div>
+        </form>
+    </body>
+</html>
