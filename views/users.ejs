@@ -2,7 +2,7 @@
 <html>
     <head>
         <title><%= title %></title>
-        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
         <%- include('header', {})%>
@@ -12,6 +12,7 @@
                     <% users.forEach(user => { %>
                         <li>
                             ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
+                            <a href="./user/<%=user.id%>/update">Update</a>
                         </li>
                     <% }); %>
                 <%} %>

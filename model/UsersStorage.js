@@ -14,8 +14,12 @@ class UsersStorage {
         return Object.values(this.storage)
     }
 
-    updateUser( id, { firstName, lastName }) {
-        this.storage[id] = { id, firstName, lastName }; 
+    getUser(id) {
+        return this.storage[id];
+    }
+
+    updateUser( id, { firstName, lastName, email, birthday }) {
+        this.storage[id] = { id, firstName, lastName, email, birthday }; 
     }
 
     deleteUser(id) {
