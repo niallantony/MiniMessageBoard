@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= title %></title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <%- include('header', {})%>
+        <div class="users-pane">
+            <ul>
+                <% if (locals.users) { %>
+                    <% users.forEach(user => { %>
+                        <li>
+                            ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
+                        </li>
+                    <% }); %>
+                <%} %>
+            </ul>
+        </div>
+    </body>
+</html>

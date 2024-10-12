@@ -2,9 +2,8 @@
     font-family:'Courier New', Courier, monospace;
     --bg-colour: rgb(213, 146, 136);
     --alt-colour: rgb(230, 233, 236);
+    --warning: rgb(163, 75, 75);
 }
-
-
 
 body {
     background-color: var(--bg-colour);
@@ -21,7 +20,34 @@ header {
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    gap: 1rem;
     width: 100dvw;
+}
+
+form label {
+    margin-top: 1rem;
+}
+
+fieldset {
+    display: flex;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+fieldset>span {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+
+.info {
+    margin: 0 0 1rem;
+    color: var(--warning)
+}
+
+span label {
+    margin-top: 0;
 }
 
 header a {
@@ -44,8 +70,16 @@ header a {
     text-align: right;
 }
 
+ul.info-pane {
+    padding-left: 2rem;
+    box-sizing: border-box;
+    color: var(--warning)
+}
 
-.message, form {
+.message, 
+form,
+.users-pane,
+.info-pane {
     background-color: var(--alt-colour);
     padding: 1rem;
     margin: 1rem;
@@ -53,6 +87,7 @@ header a {
     display: flex;
     flex-direction: column;
     width: min(520px, 90%);
+    border: solid 1px black;
 }
 
 textarea {
@@ -72,6 +107,7 @@ button {
     border: 0;
     font-family: 'Courier New', Courier, monospace;
     font-size: .8rem;
+    border: solid 1px black;
 }
 
 a {
@@ -82,6 +118,10 @@ a {
     display: flex;
     gap: 1rem;
     justify-content: center;
+}
+
+label span {
+    color: var(--warning)
 }
 
 a:hover, 

@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>New User</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+    <body>
+        <%- include("header",{}) %>
+        <%- include("partials/errors") %>
+        <form method="POST">
+            <p class="info">Fields marked with a <span aria-label="required">*</span> are required.</p>
+            <fieldset class="name">
+                <legend>Name: </legend>
+                <span>
+                    <label for="firstName">First: <span aria-label="required">*</span></label>
+                    <input type="text" id="firstName" name="firstName">
+                </span>
+                <span>
+                    <label for="lastName">Last: <span aria-label="required">*</span></label>
+                    <input type="text" id="lastName" name="lastName">
+                </span>
+            </fieldset> 
+            <label for="email">Email: <span aria-label="required">*</span></label>
+            <input type="email" id="email" name="email">
+            <label for="birthday">Birthday: <span aria-label="required">*</span></label>
+            <input type="text" id="birthday" name="birthday">
+            <label for="biog">About me: </label>
+            <textarea id="biog" name="biog" rows="4"></textarea>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <a href="./..">Cancel</a> 
+            </div>
+        </form>
+    </body>
+</html>
