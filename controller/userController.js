@@ -23,6 +23,10 @@ const validateUser = [
     body("lastName").trim()
         .isAlpha().withMessage(`Last name ${alphaErr}`)
         .isLength({ min: 1, max: 10 }).withMessage(`Last name ${lengthErr}`),
+    body("email").trim()
+        .isEmail().withMessage("Please enter a valid e-mail."),
+    body("birthday").trim()
+        .isDate({ format:'YYYY-MM-DD'}).withMessage("Please enter a valid date (YYYY-MM-DD)")
 ];
 
 const newUserPost = [
@@ -33,10 +37,11 @@ const newUserPost = [
             return res.status(400).render("newUser", {
                 title: "New User",
                 errors: errors.array(),
+                values: req.body
             });
         }
-        const { firstName, lastName } = req.body;
-        UsersStorage.addUser({ firstName, lastName });
+        const { firstName, lastName, email, birthday } = req.body;
+        UsersStorage.addUser({ firstName, lastName, email, birthday });
         console.log(`New user: ${firstName} ${lastName}`);
         res.redirect('/')
     }

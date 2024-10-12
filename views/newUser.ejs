@@ -12,17 +12,17 @@
                 <legend>Name: </legend>
                 <span>
                     <label for="firstName">First: <span aria-label="required">*</span></label>
-                    <input type="text" id="firstName" name="firstName">
+                    <input type="text" id="firstName" name="firstName" value='<%= values.firstName%>'>
                 </span>
                 <span>
                     <label for="lastName">Last: <span aria-label="required">*</span></label>
-                    <input type="text" id="lastName" name="lastName">
+                    <input type="text" id="lastName" name="lastName" value='<%= values.lastName%>'>
                 </span>
             </fieldset> 
             <label for="email">Email: <span aria-label="required">*</span></label>
-            <input type="email" id="email" name="email">
+            <input type="text" id="email" name="email" value='<%= values.email%>'>
             <label for="birthday">Birthday: <span aria-label="required">*</span></label>
-            <input type="text" id="birthday" name="birthday">
+            <input type="text" id="birthday" name="birthday" placeholder="YYYY-MM-DD" value='<%= values.birthday%>'>
             <label for="biog">About me: </label>
             <textarea id="biog" name="biog" rows="4"></textarea>
             <div class="buttons">
