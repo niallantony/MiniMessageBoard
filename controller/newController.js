@@ -6,6 +6,7 @@ const get = (req, res) => {
 
 const post = (req, res) => {
     addMessage(req.body.username, req.body.messagetext);
+    console.log(`Message posted by: ${req.body.username} at ${new Date().toString()}`)
     res.redirect('/')
     console.log("Posted...")
 }
