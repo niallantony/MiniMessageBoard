@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS usernames (
     async function main() {
         console.log('seeding...');
         const client = new Client({
-            connectionString: `postgresql://${process.env.USERNAME}:${process.env.PASSWORD}@localhost:5432/${argv[2]}`,
+            connectionString: `postgresql://${process.env.USERNAME}:${process.env.PASSWORD}@${process.env.HOST}:5432/${argv[2]}`,
         });
         await client.connect();
         await client.query(SQL);
