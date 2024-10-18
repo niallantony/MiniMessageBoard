@@ -1,13 +1,17 @@
 const { body, validationResult } = require("express-validator");
-const UsersStorage = require("../model/UsersStorage");
+const { getAllUsers, 
+    insertUser, 
+    getUser,
+    updateUser } = require('../model/query');
 
 const alphaErr = "must only contain letters";
 const lengthErr = "must be between 1 and 10 characters.";
 
-const usersGet = (req, res) => {
+const usersGet = async (req, res) => {
+    const users = await getAllUsers()
     res.render("users", {
         title: "User List",
-        users: UsersStorage.getUsers(),
+        users: users,
     })
 }
 
@@ -18,12 +22,12 @@ const newUserGet = (req, res) => {
     })
 }
 
-const userUpdateGet = (req, res) => {
+const userUpdateGet = async (req, res) => {
     const userId = req.params.id;
-    const user = UsersStorage.getUser(userId);
+    const user = await getUser(userId)
     res.render("newUser", { 
-        title: `Update ${user.firstName}`,
-        values: user,
+        title: `Update ${user[0].firstname}`,
+        values: user[0],
     })
 }
 
@@ -43,18 +47,18 @@ const validateUser = [
 
 const userUpdatePost = [
     validateUser,
-    (req, res) => {
-        const user = UsersStorage.getUser(req.params.id);
+    async (req, res) => {
+        const user = await getUser(req.params.id);
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             return res.status(400).render("newUser", {
-                title: `Update ${user.storage.firstName}`,
-                values: user,
+                title: `Update ${user[0].firstname}`,
+                values: user[0],
                 errors: errors.array(),
             });
         }
         const { firstName, lastName, email, birthday } = req.body;
-        UsersStorage.updateUser(req.params.id, { firstName, lastName, email, birthday });
+        updateUser(req.params.id, { firstName, lastName, email, birthday });
         res.redirect('/');
     }
 ]
@@ -64,6 +68,7 @@ const newUserPost = [
     (req,res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
+            console.log(req.body)
             return res.status(400).render("newUser", {
                 title: "New User",
                 errors: errors.array(),
@@ -71,7 +76,7 @@ const newUserPost = [
             });
         }
         const { firstName, lastName, email, birthday } = req.body;
-        UsersStorage.addUser({ firstName, lastName, email, birthday });
+        insertUser(firstName, lastName, email, birthday);
         console.log(`New user: ${firstName} ${lastName}`);
         res.redirect('/')
     }

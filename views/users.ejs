@@ -11,7 +11,7 @@
                 <% if (locals.users) { %>
                     <% users.forEach(user => { %>
                         <li>
-                            ID: <%= user.id %>, Name: <%= user.firstName %> <%= user.lastName %>
+                            ID: <%= user.id %>, Name: <%= user.firstname %> <%= user.lastname %>
                             <a href="./user/<%=user.id%>/update">Update</a>
                         </li>
                     <% }); %>
