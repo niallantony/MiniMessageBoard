@@ -1,14 +1,19 @@
 const { body, validationResult } = require("express-validator");
-const { getAllUsers, 
+const {  
     insertUser, 
     getUser,
-    updateUser } = require('../model/query');
+    updateUser,
+    deleteUser,
+    getUsers 
+} = require('../model/query');
+
 
 const alphaErr = "must only contain letters";
 const lengthErr = "must be between 1 and 10 characters.";
 
 const usersGet = async (req, res) => {
-    const users = await getAllUsers()
+    const { user } = req.query;
+    const users = await getUsers(user);
     res.render("users", {
         title: "User List",
         users: users,
@@ -29,6 +34,14 @@ const userUpdateGet = async (req, res) => {
         title: `Update ${user[0].firstname}`,
         values: user[0],
     })
+}
+
+const userDelete = async (req, res) => {
+    const userId = req.params.id;
+    await deleteUser(userId);
+    console.log("Deleted user, ID: " + userId);
+    res.redirect("/user");
+    
 }
 
 const validateUser = [
@@ -87,5 +100,6 @@ module.exports = {
     newUserGet,
     newUserPost,
     userUpdateGet,
-    userUpdatePost
+    userUpdatePost,
+    userDelete
 }

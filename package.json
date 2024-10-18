@@ -4,7 +4,9 @@
   "description": "practice for node",
   "main": "app.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node model/populatedb.js",
+    "watch": "node --watch app.js"
   },
   "author": "Niall Craven",
   "license": "ISC",

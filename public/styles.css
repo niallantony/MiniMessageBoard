@@ -34,6 +34,61 @@ fieldset {
     border-radius: 5px;
 }
 
+.users-pane ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.users-pane ul li {
+    background-color: var(--bg-colour);
+    margin: 1rem;
+    padding: 1rem; 
+    border-radius: 5px;
+}
+
+.user-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.users-pane .buttons {
+    justify-self: end;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: white;
+    padding: 0 0 0 1rem ;
+}
+
+.search label {
+    margin: 0;
+    align-self: center;
+}
+
+.search input {
+    flex:1;
+    border-radius: 0;
+    padding: .5rem 1rem;
+    border: 0;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
+
+.searchbutton {
+    width: fit-content;
+    height:fit-content;
+    border: 0;
+    background-color: var(--bg-colour);
+    border-radius: 2rem 5px 5px 2rem ;
+    padding: 1rem 3rem 1rem 1rem;
+}
+
 fieldset>span {
     flex: 1;
     display: flex;
@@ -86,7 +141,7 @@ form,
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    width: min(520px, 90%);
+    width: min(720px, 90%);
     border: solid 1px black;
 }
 

@@ -5,6 +5,17 @@ async function getAllUsers(){
     return rows;
 }
 
+async function getUsers(search) {
+    let res;
+    if (search) {
+        res = await pool.query("SELECT * FROM usernames WHERE firstname ILIKE '%' || $1 || '%' OR lastname ILIKE '%' || $1 || '%' ORDER BY id",
+        [search])
+    } else {
+        res = await pool.query("SELECT * FROM usernames ORDER BY id");
+    }
+    return res.rows;
+}
+
 async function insertUser(firstName, lastName, email, birthday) {
     try {
         await pool.query("INSERT INTO usernames (firstName, lastName, email, birthday) VALUES ($1, $2, $3, $4)",
@@ -26,9 +37,16 @@ async function updateUser(userId, user) {
     );
 }
 
+async function deleteUser(userId) {
+    console.log("Tr")
+    await pool.query("DELETE FROM usernames WHERE id = $1", [userId]);
+}
+
 module.exports = {
     getAllUsers,
     insertUser,
     getUser,
     updateUser,
+    deleteUser,
+    getUsers
 }
