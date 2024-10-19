@@ -9,7 +9,7 @@ const config = {
 }
 
 if (process.env.DATABASE_HOST != 'localhost') {
-    config.ssl = 'required'
+    config.ssl = 'require'
 }
 
 module.exports = new Pool(config);
