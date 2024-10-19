@@ -1,6 +1,5 @@
 require("dotenv").config()
 const { Client } = require("pg");
-const { argv } = require('node:process');
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS usernames (
@@ -21,7 +20,7 @@ CREATE TABLE IF NOT EXISTS usernames (
     async function main() {
         console.log('seeding...');
         const client = new Client({
-            connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}/${process.env.DATABASE_NAME}`,
+            connectionString: `postgresql://${process.env.DATABASE_USER}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_HOST}:5432/${process.env.DATABASE_NAME}?ssl=true`,
         });
         await client.connect();
         await client.query(SQL);
